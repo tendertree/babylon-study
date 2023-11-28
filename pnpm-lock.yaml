@@ -5,12 +5,30 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@babylonjs/core':
+    specifier: ^6.31.0
+    version: 6.31.0
+  '@babylonjs/gui':
+    specifier: ^6.31.0
+    version: 6.31.0(@babylonjs/core@6.31.0)
+  '@babylonjs/loaders':
+    specifier: ^6.31.0
+    version: 6.31.0(@babylonjs/core@6.31.0)(babylonjs-gltf2interface@6.31.0)
+  babylonjs-hook:
+    specifier: ^0.1.1
+    version: 0.1.1(@babylonjs/core@6.31.0)(react@18.2.0)
+  glTF:
+    specifier: link:@babylonjs/loaders/glTF
+    version: link:@babylonjs/loaders/glTF
   next:
     specifier: 14.0.1
     version: 14.0.1(react-dom@18.2.0)(react@18.2.0)
   react:
     specifier: ^18
     version: 18.2.0
+  react-babylonjs:
+    specifier: ^3.1.26
+    version: 3.1.26(@babylonjs/core@6.31.0)(@babylonjs/gui@6.31.0)(react-dom@18.2.0)(react@18.2.0)
   react-dom:
     specifier: ^18
     version: 18.2.0(react@18.2.0)
@@ -62,6 +80,28 @@ packages:
     dependencies:
       regenerator-runtime: 0.14.0
     dev: true
+
+  /@babylonjs/core@6.31.0:
+    resolution: {integrity: sha512-yD/eC7coO7A0qdBBRWtOPGreMcQ7IzOLW00gLzKiAdxVkKX0q/2HTIKthkw2t9wtXZFmdqHU8lE15b3c8gwUWQ==}
+    dev: false
+
+  /@babylonjs/gui@6.31.0(@babylonjs/core@6.31.0):
+    resolution: {integrity: sha512-lpHbOFo6Xrz6j30ESTpPNFeJn7dARsjaV1UdVTEhsyEo8GW6yQ6TbqwxjwGi0zsttnX2Vswj0EADypz1PUIjlg==}
+    peerDependencies:
+      '@babylonjs/core': ^6.0.0
+    dependencies:
+      '@babylonjs/core': 6.31.0
+    dev: false
+
+  /@babylonjs/loaders@6.31.0(@babylonjs/core@6.31.0)(babylonjs-gltf2interface@6.31.0):
+    resolution: {integrity: sha512-7PsU9OFhAIathu4nnAYbe92YHEKMxJkBK9/0zBZBACLI85f94vC/WpC2UHf047HsxCSb9ckuGS03ERbenLVNrw==}
+    peerDependencies:
+      '@babylonjs/core': ^6.0.0
+      babylonjs-gltf2interface: ^6.0.0
+    dependencies:
+      '@babylonjs/core': 6.31.0
+      babylonjs-gltf2interface: 6.31.0
+    dev: false
 
   /@eslint-community/eslint-utils@4.4.0(eslint@8.53.0):
     resolution: {integrity: sha512-1/sA4dwrzBAyeUoQ6oxahHKmrZvsnLCg4RfxW3ZFGGmQkSNQPFNLV9CUEFQP1x9EYXHTo5p6xdhZM1Ne9p/AfA==}
@@ -550,6 +590,20 @@ packages:
     dependencies:
       dequal: 2.0.3
     dev: true
+
+  /babylonjs-gltf2interface@6.31.0:
+    resolution: {integrity: sha512-9Y86JmCjE+7crfP4jOXnHZnjsJi+RcaVB74pLDsAMYFlXshBojWceQc7VQZMdFDbN5QGeoDX2Mk/Yjm4pOnIgQ==}
+    dev: false
+
+  /babylonjs-hook@0.1.1(@babylonjs/core@6.31.0)(react@18.2.0):
+    resolution: {integrity: sha512-uLcaX08NJy/1DeI+3GNQWQ2lQazhCR4U4jC6V+xy9rEvCCeFml3EWlwEwZv+8+oSHnMMV761jeQGjn9dVzgfMQ==}
+    peerDependencies:
+      '@babylonjs/core': 4.x||>5.0.0-rc||5.x
+      react: '>=16'
+    dependencies:
+      '@babylonjs/core': 6.31.0
+      react: 18.2.0
+    dev: false
 
   /balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -2071,6 +2125,25 @@ packages:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: true
 
+  /react-babylonjs@3.1.26(@babylonjs/core@6.31.0)(@babylonjs/gui@6.31.0)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-U8lo3hPO61fMmu0qv/fM4VE4ZW+M3LHphWNlHbB/Y9E5XxwFQ1pnEkTHPxwcJUh/NxzLQ66d/7h9h5ElO8XXQg==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      '@babylonjs/core': 5.x || 6.x
+      '@babylonjs/gui': 5.x || 6.x
+      react: '>=18'
+      react-dom: '>=18'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+    dependencies:
+      '@babylonjs/core': 6.31.0
+      '@babylonjs/gui': 6.31.0(@babylonjs/core@6.31.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-reconciler: 0.27.0(react@18.2.0)
+    dev: false
+
   /react-dom@18.2.0(react@18.2.0):
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
     peerDependencies:
@@ -2084,6 +2157,17 @@ packages:
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: true
+
+  /react-reconciler@0.27.0(react@18.2.0):
+    resolution: {integrity: sha512-HmMDKciQjYmBRGuuhIaKA1ba/7a+UsM5FzOZsMO2JYHt9Jh8reCb7j1eDC95NOyUlKM9KRyvdx0flBuDvYSBoA==}
+    engines: {node: '>=0.10.0'}
+    peerDependencies:
+      react: ^18.0.0
+    dependencies:
+      loose-envify: 1.4.0
+      react: 18.2.0
+      scheduler: 0.21.0
+    dev: false
 
   /react@18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
@@ -2192,6 +2276,12 @@ packages:
       get-intrinsic: 1.2.2
       is-regex: 1.1.4
     dev: true
+
+  /scheduler@0.21.0:
+    resolution: {integrity: sha512-1r87x5fz9MXqswA2ERLo0EbOAU74DpIUO090gIasYTqlVoJeMcl+Z1Rg7WHz+qtPujhS/hGIt9kxZOYBV3faRQ==}
+    dependencies:
+      loose-envify: 1.4.0
+    dev: false
 
   /scheduler@0.23.0:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}

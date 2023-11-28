@@ -1,0 +1,33 @@
+canvas{
+position:fixed;
+width:100vw;
+height:100vh;
+background:transparent;
+tabindex:-1;
+outline:none;
+}
+
+body{
+ scroll-behavior: smooth;
+ scroll-padding: 10rem;
+}
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
